@@ -5,17 +5,16 @@
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "postbuild": "node dist/make-executable.js dist/*.js",
-    "clean": "node dist/clean.js",
-    "tree": "node dist/generate-tree.js",
-    "update-deps": "node dist/update-deps.js",
-    "make-executable": "node dist/make-executable.js"
+    "clean": "node dist/scripts/clean.js",
+    "tree": "node dist/scripts/generate-tree.js",
+    "update-deps": "node dist/scripts/update-deps.js",
+    "make-executable": "node dist/scripts/make-executable.js"
   },
   "bin": {
-    "scripts-ts-clean": "./dist/clean.js",
-    "scripts-ts-tree": "./dist/generate-tree.js",
-    "scripts-ts-make-executable": "./dist/make-executable.js",
-    "scripts-ts-update-deps": "./dist/update-deps.js"
+    "scripts-ts-clean": "./dist/scripts/clean.js",
+    "scripts-ts-tree": "./dist/scripts/generate-tree.js",
+    "scripts-ts-make-executable": "./dist/scripts/make-executable.js",
+    "scripts-ts-update-deps": "./dist/scripts/update-deps.js"
   },
   "keywords": [
     "typescript",
