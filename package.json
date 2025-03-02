@@ -1,5 +1,5 @@
 {
-  "name": "typescript-scripts",
+  "name": "scripts-ts",
   "version": "1.0.0",
   "description": "A collection of platform-agnostic, standalone TypeScript utility scripts for common development tasks including cleaning build artifacts, generating directory trees, setting executable permissions, and updating dependencies",
   "type": "module",
@@ -12,10 +12,10 @@
     "make-executable": "node dist/make-executable.js"
   },
   "bin": {
-    "ts-clean": "./dist/clean.js",
-    "ts-tree": "./dist/generate-tree.js",
-    "ts-make-executable": "./dist/make-executable.js",
-    "ts-update-deps": "./dist/update-deps.js"
+    "scripts-ts-clean": "./dist/clean.js",
+    "scripts-ts-tree": "./dist/generate-tree.js",
+    "scripts-ts-make-executable": "./dist/make-executable.js",
+    "scripts-ts-update-deps": "./dist/update-deps.js"
   },
   "keywords": [
     "typescript",

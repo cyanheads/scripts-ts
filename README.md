@@ -1,177 +1,141 @@
-# TypeScript Project Scripts
+# 🛠️ TypeScript Project Scripts
+
+<div align="center">
+
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D%2016.0.0-brightgreen.svg)](https://nodejs.org/)
+[![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-24292e)](https://github.com/cyanheads/scripts-ts)
 
 A collection of standalone, platform-agnostic TypeScript utility scripts for managing common development tasks in any project.
 
-[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue)](https://github.com/cyanheads/scripts-ts)
+</div>
 
-## Features
+---
 
-- 🧹 **Clean Script**: Remove build artifacts and temp directories
-- 🌳 **Generate Tree**: Create a markdown representation of your project structure
-- 🔑 **Make Executable**: Set executable permissions for script files (chmod +x)
-- 📦 **Update Dependencies**: Update package.json dependencies to latest versions
+## ✨ Features
 
-## Installation
+- **🧹 Clean Script** - Remove build artifacts and temp directories
+- **🌳 Generate Tree** - Create a markdown representation of your project structure
+- **🔑 Make Executable** - Set executable permissions for script files (chmod +x)
+- **📦 Update Dependencies** - Update package.json dependencies to latest versions
 
-To use these scripts in your TypeScript project:
+All scripts are:
+- 🔄 **Cross-platform** - Works on Windows, macOS, and Linux
+- 🧩 **Standalone** - Each script is self-contained
+- 🌐 **Project-agnostic** - Use in any TypeScript/JavaScript project
+- 🛡️ **Typed** - Full TypeScript definitions and type safety
 
-1. Clone or download this repository
-2. Add it to your project or install it as a dependency:
+## 📥 Installation
 
 ```bash
-# From npm
-npm install typescript-scripts --save-dev
+# Install from npm
+npm install scripts-ts --save-dev
 
-# Or locally
-npm install ./path/to/typescript-scripts --save-dev
+# Or yarn
+yarn add scripts-ts --dev
+
+# Or pnpm
+pnpm add -D scripts-ts
 ```
 
-3. Build the TypeScript scripts:
+### 🔨 Build from Source
 
 ```bash
+# Clone the repository
+git clone https://github.com/cyanheads/scripts-ts.git
+
+# Install dependencies
+npm install
+
+# Build the project
 npm run build
 ```
 
-## Available Scripts
+## 📚 Usage
 
 ### Clean Script
 
-Removes build artifacts and temporary directories.
-
 ```bash
-# Default usage (cleans dist and logs directories)
+# Default (cleans dist and logs directories)
 npm run clean
 
-# Specify custom directories to clean
-npm run clean temp coverage
+# Specify custom directories
+npm run clean temp coverage node_modules/.cache
 
-# Or directly
-node dist/clean.js temp cache
+# Direct usage
+npx ts-clean temp cache
 ```
-
-Features:
-- Cross-platform compatibility (Windows, macOS, Linux)
-- Configurable directories to clean
-- Reports success or skipped directories
 
 ### Generate Tree Script
 
-Creates a visual tree representation of your project structure.
-
 ```bash
-# Default usage (outputs to docs/tree.md)
+# Default (outputs to docs/tree.md)
 npm run tree
 
-# Specify custom output path
+# Custom output path
 npm run tree ./documentation/project-structure.md
 
-# Limit directory depth
+# Limit depth
 npm run tree --depth=3
 
-# Get help
+# Help
 npm run tree --help
 ```
 
-Features:
-- Respects .gitignore patterns
-- Automatically excludes common directories (node_modules, .git, etc.)
-- Configurable depth limit
-- Sorts directories first, then files
-
 ### Make Executable Script
 
-Makes script files executable on Unix-like systems.
-
 ```bash
-# Default usage (makes dist/index.js executable)
+# Default (makes dist/index.js executable)
 npm run make-executable
 
-# Specify custom files
-npm run make-executable dist/cli.js bin/tool.js
-```
+# Specify files
+npm run make-executable dist/cli.js bin/*.js
 
-Features:
-- Cross-platform compatibility (no-op on Windows)
-- Handles multiple files
-- Useful for CLI applications
+# Direct usage
+npx ts-make-executable dist/cli.js
+```
 
 ### Update Dependencies Script
 
-Updates package.json dependencies using npm-check-updates.
-
 ```bash
-# Update all dependencies to latest versions
+# Update all dependencies
 npm run update-deps
 
-# Update specific packages only
+# Update specific packages
 npm run update-deps react react-dom
 
 # Update to minor versions only
 npm run update-deps --target=minor
 
-# Dry run (don't actually update package.json)
+# Dry run
 npm run update-deps --dry-run
 ```
 
-Features:
-- Uses npm-check-updates under the hood
-- Supports all npm-check-updates options
-- Cross-platform compatibility
+## 🔧 Integration
 
-## Integration with Your Project
-
-Add these scripts to your project's package.json:
+Add to your project's package.json:
 
 ```json
 "scripts": {
-  "clean": "node node_modules/typescript-scripts/dist/clean.js",
-  "tree": "node node_modules/typescript-scripts/dist/generate-tree.js",
-  "make-executable": "node node_modules/typescript-scripts/dist/make-executable.js",
-  "update-deps": "node node_modules/typescript-scripts/dist/update-deps.js",
+  "clean": "scripts-ts-clean",
+  "tree": "scripts-ts-tree",
+  "make-executable": "scripts-ts-make-executable",
+  "update-deps": "scripts-ts-update-deps",
   "rebuild": "npm run clean && npm run build",
   "postbuild": "npm run make-executable"
 }
 ```
 
-## Standalone Usage
+## 🛠️ Customization
 
-You can also use these scripts directly, without adding them to package.json:
-
-```bash
-node dist/clean.js
-node dist/generate-tree.js
-node dist/make-executable.js
-node dist/update-deps.js
-```
-
-Or make them globally available:
-
-```bash
-npm install -g typescript-scripts
-```
-
-Then use the provided commands anywhere:
-
-```bash
-ts-clean
-ts-tree
-ts-make-executable
-ts-update-deps
-```
-
-## Customization
-
-Each script is designed to be self-contained and easily customizable. You can:
+Each script is designed to be easily customizable:
 
 1. Copy individual script files into your project
 2. Modify default values to match your project needs
 3. Add additional functionality as required
 
-## License
-
-[Apache License 2.0](LICENSE)
-
-## Contributing
+## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
@@ -180,3 +144,7 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the [Apache License 2.0](LICENSE).
