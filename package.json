@@ -1,14 +1,19 @@
 {
   "name": "scripts-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A collection of platform-agnostic, standalone TypeScript utility scripts for common development tasks including cleaning build artifacts, generating directory trees, setting executable permissions, and updating dependencies",
   "type": "module",
   "scripts": {
     "build": "tsc",
-    "clean": "node dist/scripts/clean.js",
-    "tree": "node dist/scripts/generate-tree.js",
-    "update-deps": "node dist/scripts/update-deps.js",
-    "make-executable": "node dist/scripts/make-executable.js"
+    "dev": "tsc -w",
+    "clean": "node scripts/clean.ts",
+    "tree": "node scripts/generate-tree.ts",
+    "update-deps": "node scripts/update-deps.ts",
+    "make-executable": "node scripts/make-executable.ts",
+    "build:clean": "npm run build && npm run clean",
+    "build:tree": "npm run build && npm run tree",
+    "build:update-deps": "npm run build && npm run update-deps",
+    "build:make-executable": "npm run build && npm run make-executable"
   },
   "bin": {
     "scripts-ts-clean": "./dist/scripts/clean.js",
@@ -45,6 +50,7 @@
   "homepage": "https://github.com/cyanheads/scripts-ts#readme",
   "devDependencies": {
     "@types/node": "^22.13.8",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },
   "files": [
